@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запасы</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar__brand">
+                <strong>Запасы</strong>
+                <small>Домашний учёт</small>
+            </div>
+        
+
+            <p class="sidebar__label">Меню</p>
+
+            <nav class="sidebar__nav" aria-label="Основное меню">
+                <a>Главная</a>
+                <a href="./index.html" aria-current="page">Мои запасы</a>
+                <a>Категории</a>
+                <a>Места хранения</a>
+            </nav>
+            <div class="sidebar__note">
+                <strong>Всё под контролем</strong>
+                <p>Проверяйте сроки регулярно</p>
+            </div>
+        </aside>
+    
+
+    <main class="page">
+        <header class="page-header">
+            <div class="page-header__text">
+                <p class="page-header__label">Домашняя кладовая</p>
+                <h1>Мои запасы</h1>
+                <p class="page-header__description">
+                    Все продукты и сроки годности в одном месте ♡
+                </p>
+            </div>
+
+            <button class="add-button" type="button">
+                <span aria-hidden="true">+ Добавить продукт</span>
+            </button>
+        </header>
+        <section class="stats" aria-label="Статистика продуктов">
+            <div class="stat-card">
+                <p class="stat-card__label">Всего продуктов</p>
+                <strong class="stat-card__value" data-stat="total">6</strong>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-card__label">Годны</p>
+                <strong class="stat-card__value" data-stat="good">2</strong>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-card__label">Скоро истекает</p>
+                <strong class="stat-card__value" data-stat="soon">2</strong>
+            </div>
+
+            <div class="stat-card">
+                <p class="stat-card__label">Просрочено</p>
+                <strong class="stat-card__value" data-stat="expired">1</strong>
+            </div>
+        </section>
+        
+        <section class="products" aria-labelledby="products-title">
+            <div class="products__header">
+                <h2 id="products-title">
+                    Список продуктов
+                    <span class="products__count">6 из 6</span>
+                </h2>
+
+                <div class="products__tools">
+                    <input
+                        class="products__search"
+                        type="search"
+                        placeholder="Найти продукт..."
+                        aria-label="Поиск продуктов"
+                    >
+
+                    <select
+                        class="products__filter"
+                        aria-label="Фильтр по сроку годности"
+                    >
+                        <option value="all">Все статусы</option>
+                        <option value="good">Годен</option>
+                        <option value="soon">Скоро истекает</option>
+                        <option value="expired">Просрочено</option>
+                        <option value="none">Срок не указан</option>   
+                    </select>
+                    <select class="products__sort" aria-label="Сортировка продуктов">
+                        <option value="name">По названию</option>
+                        <option value="expiry">По сроку годности</option>
+                    </select>
+                    <select class="products__location" aria-label="Место хранения">
+                        <option value="all">Все места хранения</option>
+                        <option value="fridge">Холодильник</option>
+                        <option value="cupboard">Кухонный шкаф</option>
+                    </select>
+                    <select class="products__category" aria-label="Категория продуктов">
+                        <option value="all">Все категории</option>
+                        <option value="dairy">Молочные продукты</option>
+                        <option value="bread">Хлеб и выпечка</option>
+                        <option value="grocery">Бакалея</option>
+                        <option value="fruit">Фрукты и овощи</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="products__list">
+                <article class="product-card" data-status="good" data-location="fridge" data-category="dairy">
+                    <div>
+                        <h3>Молоко</h3>
+                        <p class="product-card__quantity">2 л</p>
+                    </div>
+
+                    <p>Холодильник</p>
+                    <p>Годен до <time datetime="2026-11-25">25.11.2026</time></p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status">Годен</span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>    
+                <article class="product-card" data-status="soon" data-location="fridge" data-category="dairy">
+                    <div>
+                        <h3>Йогурт</h3>
+                        <p class="product-card__quantity">4 шт.</p>
+                    </div>
+
+                    <p>Холодильник</p>
+                    <p>Годен до <time datetime="2026-11-15">15.11.2026</time></p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status product-card__status--soon">
+                            Скоро истекает
+                        </span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-status="expired" data-location="cupboard" data-category="bread">
+                    <div>
+                        <h3>Хлеб</h3>
+                        <p class="product-card__quantity">1 шт.</p>
+                    </div>
+
+                    <p>Кухонный шкаф</p>
+                    <p>Годен до <time datetime="2026-11-12">12.11.2026</time></p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status product-card__status--expired">
+                            Просрочено
+                        </span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-status="good" data-location="cupboard" data-category="grocery">
+                    <div>
+                        <h3>Рис</h3>
+                        <p class="product-card__quantity">2 кг</p>
+                    </div>
+                    <p>Кухонный шкаф</p>
+                    <p>Годен до <time datetime="2027-12-15">15.12.2027</time></p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status">Годен</span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-status="soon" data-location="fridge" data-category="fruit">
+                    <div>
+                        <h3>Яблоки</h3>
+                        <p class="product-card__quantity">1 кг</p> 
+                    </div>
+                    <p>Холодильник</p>
+                    <p>Годен до <time datetime="2026-11-16">16.11.2026</time></p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status product-card__status--soon">
+                            Скоро истекает
+                        </span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>
+                <article class="product-card" data-status="none" data-location="cupboard" data-category="grocery">
+                    <div>
+                        <h3>Соль</h3>
+                        <p class="product-card__quantity">1 кг</p>
+                    </div>
+                    <p>Кухонный шкаф</p>
+                    <p>Срок не указан</p>
+
+                    <div class="product-card__footer">
+                        <span class="product-card__status product-card__status--none">
+                            Срок не указан
+                        </span>
+                        <div class="product-card__actions">
+                            <button type="button" class="product-card__edit">Редактировать</button>
+                            <button type="button" class="product-card__delete">Удалить</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="products__empty" id="empty-stock" hidden>
+                <h3>Пока пусто</h3>
+                <p>Добавь первый продукт, чтобы отслеживать его срок годности.</p>
+                <button class="add-button" type="button">Добавить продукт</button>
+            </div>
+
+            <div class="products__empty" id="empty-search" hidden>
+                <h3>Ничего не найдено</h3>
+                <p>Измени запрос или выбери статус.</p>
+            </div>
+        </section>
+    </main>
+    </div>
+    <dialog class="delete-dialog" id="delete-dialog" aria-labelledby="delete-title">
+        <h2 id="delete-title">Удалить продукт?</h2>
+
+        <p>
+            Удалить "<strong id="delete-name"></strong>" из запасов?
+        </p>
+
+        <form method="dialog" class="delete-dialog__actions">
+            <button type="submit" value="canсel" autofocus>Отмена</button>
+            <button type="submit" value="confirm" class="delete-dialog__confirm">
+                Удалить
+            </button>
+        </form>
+    </dialog>
+</body>
+</html>
